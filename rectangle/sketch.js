@@ -1,43 +1,53 @@
 // Points, the first point is duplicated at the end
-var p = [[-50, -50], [-50, 50], [50, 50], [50, -50], [-50, -50]];
-var offSetX = 0;
-var offSetY = 0;
+const p = [[-50, -50], [-50, 50], [50, 50], [50, -50], [-50, -50]];
+// Rotation matrix
+let rm = [];
+// To move rectangle
+let offSetX = 0;
+let offSetY = 0;
 // Scale
-var s = 1;
+let s = 1;
 // Angle
-var a = 0;
-// Pivots
-var pX = 0;
-var pY = 0;
+let a = 0;
+
+// Multiply matrix and a vector
+function mtriXvec(ma, ve){
+  let r = new Array();
+  for(let i in ma){
+    let sum = 0;
+      for(let k in ma[i]){
+        sum += (ma[i][k] * ve[k]);
+      }
+    r[i] = sum;
+  }
+  return r;
+}
 
 function setup() {
-  createCanvas(1420, 700);
+  createCanvas(800, 600);
 }
 
 function draw() {
   // Get fps
-  var fps = frameRate();
+  let fps = frameRate();
   // "Clear" screen
   background(145, 91, 91);
   // 0,0 to the center
-  translate(710, 360);
+  translate(400, 300);
   // Line colors
   stroke(255);
   // Line size
   strokeWeight(2 * s);
+  // Calculate the new rotation matrix
+  rm = [[ cos(a), sin(a)],
+        [-sin(a), cos(a)]];
   // For each pair of point do the math and draw
   for (let i = 0; i < 4; i++) {
-     const x1 = ((p[i][0] + pX) * cos(a) - (p[i][1] + pY) * sin(a) + pX) * s + offSetX;
-     const y1 = ((p[i][0] + pX) * sin(a) + (p[i][1] + pY) * cos(a) + pY) * s + offSetY;
-     const x2 = ((p[i+1][0] + pX) * cos(a) - (p[i+1][1] + pY) * sin(a) + pX) * s + offSetX;
-     const y2 = ((p[i+1][0] + pX) * sin(a) + (p[i+1][1] + pY) * cos(a) + pY) * s + offSetY;
-     line(x1, y1, x2, y2); 
-  }
-
-  stroke(41, 114, 137);
-  fill(41, 114, 137);
-  // Pivot of rotation
-  circle((pX *s) + offSetX, (pY * s) + offSetY, 5 * s);
+     const p1 = mtriXvec(rm, p[ i ]);
+     const p2 = mtriXvec(rm, p[i+1]);
+     line(p1[0] * s + offSetX, p1[1] * s + offSetY, 
+          p2[0] * s + offSetX, p2[1] * s + offSetY);
+    }
 
   // Move Rectangle
   if (keyIsDown( 87)) offSetY += (-300 / fps);
@@ -47,11 +57,6 @@ function draw() {
   // Change scale
   if (keyIsDown(107)) s += ( 4 / fps);
   if (keyIsDown(109)) s += (-4 / fps);
-  // Change pivots
-  if (keyIsDown(   UP_ARROW)) pY += (-100 / fps);
-  if (keyIsDown( DOWN_ARROW)) pY += ( 100 / fps);
-  if (keyIsDown(RIGHT_ARROW)) pX += ( 100 / fps);
-  if (keyIsDown( LEFT_ARROW)) pX += (-100 / fps);
   // Change Angle
   if (keyIsDown( 81)) a += ( 1 / fps);
   if (keyIsDown( 69)) a += (-1 / fps);
@@ -61,5 +66,5 @@ function draw() {
   stroke(0);
   fill(0);
   textSize(20);
-  text('Controls: "WASD" move, "QE" rotate, "Arrow key" rotation point, "+-" zoom', -710, -340);
+  text('Controls: "WASD" move, "QE" rotate, "+-" zoom', -395 , -280);
 }
