@@ -20,10 +20,7 @@ function tree(x, y, a, l, d){
 
 function draw() {
   background(0);
-  translate(400, 600);  
-  stroke(255);
+  translate(400, 600);
   strokeWeight(5);
-  line(0, 0, 0, -100);
-  stroke(255,0,0);
   tree(0, 0, 0, 100, deep.value());
 }
