@@ -28,14 +28,14 @@ function setup() {
 }
 
 function changeAmplitude() {
-  if (parseFloat(this.value())) {
-    amplitude = parseFloat(this.value());
-  }
+    if (parseFloat(this.value())) {
+        amplitude = parseFloat(this.value());
+    }
 }
 
 
 function draw() {
-    let delta_time= frameCount % 800;
+    let delta_time = frameCount % 800;
 
     translate(0, 400);
     fill(0);
