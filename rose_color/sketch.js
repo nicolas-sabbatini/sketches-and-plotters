@@ -1,0 +1,31 @@
+// Sin variables
+let amplitude_sin = 7;
+let frequency_sin = 2;
+// Cos variables
+let amplitude_cos = 7;
+let frequency_cos = 3;
+
+function setup() {
+    // Create canvas
+    createCanvas(900, 900);
+    background(163, 190, 140);
+}
+
+function draw() {
+    translate(450, 450);
+    fill(191, 97, 106, 5)
+    stroke(191, 97, 106, 5);
+    // Draw 100 frames in one
+    if (frameCount * 5 < 756) {
+        for (let i = 0; i < 50; i++) {
+            let delta_time = (((frameCount - 1) * 5) + (i / 10));
+            ellipse(sin(radians(delta_time) * frequency_sin) * (delta_time / amplitude_sin),
+                cos(radians(delta_time) * frequency_cos) * (delta_time / amplitude_cos), delta_time);
+        }
+    } else {
+        let delta_time = 755;
+        ellipse(sin(radians(delta_time) * frequency_sin) * (delta_time / amplitude_sin),
+            cos(radians(delta_time) * frequency_cos) * (delta_time / amplitude_cos), delta_time);
+
+    }
+}
