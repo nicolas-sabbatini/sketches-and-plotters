@@ -10,7 +10,7 @@ function setup() {
     let amplitude_legend = createElement('p', 'Amplitude:');
     amplitude_legend.position(810, 0);
 
-    // Create amplitude input
+    // Create frequency input
     frequency = 1;
     frequency_input = createInput('1', 'number');
     frequency_input.input(change_frequency);
