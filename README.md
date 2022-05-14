@@ -1,6 +1,16 @@
-# Circular Geometric Sketches
-A small sample of circular geometric sketches made with P5.js
+# Simple Geometric Sketches and Plotters P5.js.
+A small collection of P5.js sketches and plotters.
 
-1. Simple arc
-2. Simple circle
-3. Simple sketch 1
+## Plotters:
+- Simple arc: A really simple SIN and COS plotter. 
+- Simple circle: Draw circles with SIN and COS.
+
+## Sketches:
+- Rose simple: A black and white rose.
+- Rose color: A red and green rose.
+- Shadow spiral: An spiral made of big circles tangent to a point.
+- Sierpinski triangle: The Sierpinski triangle made with random points.
+- Simple spiral: TODO desc.
+- Sirus 1: TODO desc.
+- Sirus 2: TODO desc.
+
