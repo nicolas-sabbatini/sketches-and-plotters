@@ -2,14 +2,14 @@
 A small collection of P5.js sketches and plotters.
 
 ## Plotters:
-- Simple arc: A really simple SIN and COS plotter. 
-- Simple circle: Draw circles with SIN and COS.
+- [Simple arc:](simple_arc) A really simple SIN and COS plotter. 
+- [Simple circle:](simple_circle) Draw circles with SIN and COS.
 
 ## Sketches:
-- Ball: A bouncy ball simulation.
-- Butterfly: An small geometric butterfly that follows the mouse.
-- Rain: Simple yet relaxing rain sketch.
- - Game of Life: Conway's game of life
+- [Ball:](ball) A bouncy ball simulation.
+- [Butterfly](butterfly): An small geometric butterfly that follows the mouse.
+- [Rain](rain): Simple yet relaxing rain sketch.
+- [Game of Life](game-of-life): Conway's game of life
 
 ## TODO:
 - Rose simple: A black and white rose.
