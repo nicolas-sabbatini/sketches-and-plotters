@@ -1,0 +1,33 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+canvas {
+  box-shadow: 0px 0px 12px 12px gray;
+}
+
+#controls {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    padding-left: 40px;
+    height: 90%;
+}
+
+select, button {
+  width: 300px;
+  height: 60px;
+  font-size: 25px;
+}
