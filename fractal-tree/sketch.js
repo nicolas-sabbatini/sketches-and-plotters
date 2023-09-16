@@ -1,9 +1,12 @@
+let div;
+
 function setup() {
   createCanvas(800, 600);
+  div = select("#controls");
   angle = createSlider(0, PI, PI / 4, 0.01);
-  angle.position(10, 10);
-  deep = createInput(10, 'number');
-  deep.position(10, 40);
+  angle.parent(div);
+  deep = createInput(10, "number");
+  deep.parent(div);
   angleMode(RADIANS);
 }
 
