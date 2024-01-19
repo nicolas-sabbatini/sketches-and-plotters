@@ -10,11 +10,11 @@ class Grid {
       this.prev[x] = [];
       this.next[x] = [];
       for (let y = 0; y < height; y++) {
-        const r = random() > 0.80 ? 1 : 0;
+        const r = random() > 0.8 ? 1 : 0;
         this.prev[x][y] = r;
         this.next[x][y] = r;
-      };
-    };
+      }
+    }
   }
 
   update() {
@@ -26,8 +26,12 @@ class Grid {
         let neighbours = -this.prev[x][y];
         for (let x_offset = -1; x_offset < 2; x_offset++) {
           for (let y_offset = -1; y_offset < 2; y_offset++) {
-            if (x + x_offset >= 0 && x + x_offset < this.width &&
-              y + y_offset >= 0 && y + y_offset < this.height) {
+            if (
+              x + x_offset >= 0 &&
+              x + x_offset < this.width &&
+              y + y_offset >= 0 &&
+              y + y_offset < this.height
+            ) {
               neighbours += this.prev[x + x_offset][y + y_offset];
             }
           }
